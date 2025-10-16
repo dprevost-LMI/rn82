@@ -1,4 +1,8 @@
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { withRozenite } = require('@rozenite/metro');
+const {
+  withRozeniteReduxDevTools,
+} = require('@rozenite/redux-devtools-plugin/metro');
 
 /**
  * Metro configuration
@@ -8,4 +12,7 @@ const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
  */
 const config = {};
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+module.exports = withRozenite(mergeConfig(getDefaultConfig(__dirname), config), {
+  enhanceMetroConfig: (metroConfig) => withRozeniteReduxDevTools(metroConfig),
+  enabled: true,
+});
