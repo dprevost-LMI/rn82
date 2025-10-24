@@ -9,10 +9,8 @@ import React from 'react';
 import { StatusBar, StyleSheet, useColorScheme, ScrollView } from 'react-native';
 import {
   SafeAreaProvider,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import TetrisAnimation from './src/components/TetrisAnimation';
-import BouncingBox from './src/components/BouncingBox';
+import ParentComponent from './src/components/ParentComponent';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -26,12 +24,10 @@ function App() {
 }
 
 function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
 
   return (
     <ScrollView style={styles.container}>
-      <BouncingBox />
-      <TetrisAnimation />
+      <ParentComponent />
     </ScrollView>
   );
 }
