@@ -1,0 +1,6 @@
+{
+  "src": ["src/**/*.{ts,tsx,js,jsx}"],
+  "manifest": "./fbtee-manifest.json",
+  "defaultLocale": "en_US",
+  "locales": ["en_US"]
+}
