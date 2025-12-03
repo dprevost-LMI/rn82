@@ -5,18 +5,13 @@ import { fbt } from 'fbtee';
 const FbteeExample: React.FC = () => {
   const [contactMatchedCount, setContactMatchedCount] = useState(0);
 
-  const MATCHED_CONTACTS = (count: number) =>
+  const MATCHED_CONTACTS = () =>
     fbt(
-      fbt.plural('', count, {
+      fbt.plural('', 1, {
         many: 'Matches ',
-      }) +
-        fbt.plural('', count, {
-          name: 'number of matched contacts',
-          many: 'contacts:',
-          showCount: 'ifMany',
-        }),
+      }),
       'Call.numberOfMatchedContacts',
-    ).toString();
+    );
 
   return (
     <View style={styles.container}>
@@ -32,7 +27,7 @@ const FbteeExample: React.FC = () => {
       <View style={styles.resultContainer}>
         <Text style={styles.label}>Count: {contactMatchedCount}</Text>
         <Text style={styles.result}>
-          {MATCHED_CONTACTS(contactMatchedCount)}
+          {MATCHED_CONTACTS()}
         </Text>
       </View>
     </View>
